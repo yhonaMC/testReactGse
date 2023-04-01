@@ -1,12 +1,11 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import queryString from "query-string";
+import axios from "axios";
 
 const ProfileUser = () => {
   const location = useLocation();
   const { id } = queryString.parse(location.search);
-
   const [dataProfileUser, setDataProfileUser] = useState({});
 
   const getDataUserId = async (idUser) => {
@@ -28,7 +27,7 @@ const ProfileUser = () => {
 
   return (
     <>
-      <div className="d-flex justify-center items-center">
+      <div className="flex flex-col md:flex-row justify-center items-center w-full mt-5">
         <main className="profile-page">
           <section className="relative block h-500-px">
             <div
@@ -51,43 +50,14 @@ const ProfileUser = () => {
                     <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
                       <div className="relative">
                         <img
-                          alt="..."
+                          alt="image-Profile"
                           src="https://demos.creative-tim.com/notus-js/assets/img/team-2-800x800.jpg"
                           className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                         />
                       </div>
                     </div>
-
-                    <div className="w-full lg:w-4/12 px-4 lg:order-1">
-                      <div className="flex justify-center py-4 lg:pt-4 pt-8">
-                        <div className="mr-4 p-3 text-center">
-                          <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            22
-                          </span>
-                          <span className="text-sm text-blueGray-400">
-                            Friends
-                          </span>
-                        </div>
-                        <div className="mr-4 p-3 text-center">
-                          <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            10
-                          </span>
-                          <span className="text-sm text-blueGray-400">
-                            Photos
-                          </span>
-                        </div>
-                        <div className="lg:mr-4 p-3 text-center">
-                          <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                            89
-                          </span>
-                          <span className="text-sm text-blueGray-400">
-                            Comments
-                          </span>
-                        </div>
-                      </div>
-                    </div>
                   </div>
-                  <div className="text-center mt-12">
+                  <div className="text-center mt-24">
                     <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
                       {dataProfileUser?.name}
                     </h3>
@@ -136,6 +106,9 @@ const ProfileUser = () => {
           </section>
         </main>
       </div>
+      {/* <div className="d-flex justify-center items-center">
+        
+      </div> */}
     </>
   );
 };
